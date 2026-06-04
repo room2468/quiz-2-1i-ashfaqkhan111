@@ -24,13 +24,18 @@ read -r used_mb
 # Step 5: Print the three output lines using echo, embedding variables directly.
 
 # TODO: Replace this line with your implementation
-free=$((total_mb - used_mb))
-threshold=$((used_mb * 100/ total_mb))
+#!/bin/bash
+free=$(( total_mb - used_mb ))
+usage=$(( used_mb * 100 / total_mb ))
 
-if (($threshold <= 70)); then
-echo "Normal"
-elif (($threshold >= 70 && $threshold <= 89)); then
-echo "Warning"
-elif (($threshold > 89)); then
-echo "Critical"
+if (( usage >= 90 )); then
+    status="Critical"
+elif (( usage >= 70 )); then
+    status="Warning"
+else
+    status="Normal"
 fi
+
+echo "Free: $free MB"
+echo "Usage: $usage%"
+echo "Status: $status"
