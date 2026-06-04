@@ -34,7 +34,6 @@ echo "Scripts (.sh): $scripts"
 echo "Logs (.log): $logs"
 echo "Configs (.conf): $configs"
 echo "Others: $others"
-done
 
 #echo "Scripts (.sh): $scripts"
 #echo "Logs (.log): $logs"
