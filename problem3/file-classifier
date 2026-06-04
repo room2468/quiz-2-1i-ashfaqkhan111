@@ -10,7 +10,7 @@ logs=0
 configs=0
 others=0
 
-while IFS= read -r filename || [[ -n "$filename" ]]; do
+#while IFS= read -r filename || [[ -n "$filename" ]]; do
     # Use a case statement on "$filename" with wildcard suffix patterns.
     # Four branches: one per extension, and a catch-all * for everything else.
     #   e.g. case "$item" in
@@ -20,10 +20,24 @@ while IFS= read -r filename || [[ -n "$filename" ]]; do
     #        esac
 
     # TODO: Replace this line with your case statement
-    echo "TODO"
+
+while IFS= read -r filename; do
+    case "$filename" in
+        *.sh)   (( scripts++ )) ;;
+        *.log)  (( logs++ )) ;;
+        *.conf) (( configs++ )) ;;
+        *)      (( others++ )) ;;
+    esac
 done
 
 echo "Scripts (.sh): $scripts"
 echo "Logs (.log): $logs"
 echo "Configs (.conf): $configs"
 echo "Others: $others"
+done
+
+#echo "Scripts (.sh): $scripts"
+#echo "Logs (.log): $logs"
+#echo "Configs (.conf): $configs"
+#echo "Others: $others"
+
