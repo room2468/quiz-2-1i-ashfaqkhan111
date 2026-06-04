@@ -24,7 +24,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     # Step 4: Count users over 1000 MB using another (( )) arithmetic comparison.
     #   e.g. if (( val > 50 )); then (( count++ )); fi
 
-    # TODO: Replace this line with your implementation (Steps 1-4)
+    # TODO: Replace this line with your implementation (Steps 1-4).
     read -r username size <<< "$line"
     (( total += size ))
     if (( size > highest_size )); then
@@ -35,7 +35,6 @@ while IFS= read -r line || [[ -n "$line" ]]; do
         (( over_1000++ ))
     fi
 done
-
 echo "Total usage: $total MB"
 echo "Highest user: $highest_user ($highest_size MB)"
 echo "Users over 1000 MB: $over_limit"
